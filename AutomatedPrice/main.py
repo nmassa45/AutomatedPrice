@@ -303,4 +303,4 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 if __name__ == '__main__':
     price_update_changes_comparisons("PriceIncreases/BigC - Daubert Price Update May 25-2021.xlsx", ['A', 'D'], [2, 372],
                                      "MasterSheets/products-2021-05-26.xlsx", ['B', 'E'], [2, 2323])
-    print("Just wanted to test something!")
+    print("Just wanted to test something again!")
