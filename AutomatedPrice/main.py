@@ -106,7 +106,7 @@ def update_price(matched_list, workbook_name, start_row, last_row):
         product_id = i[0]
         results = False
         while not results:
-            for row in ws.iter_rows(start_row, last_row):
+            for row in ws.iter_rows(None, start_row, last_row):  # If error occurs with iter_rows, check parameters in worksheet.py
                 if str(row[1].value).strip().upper() == product_id:
                     print("ID: " + str(row[1].value) + " was found and the price is: " + str(row[4].value))
                     if str(row[4].value).strip() == '0':  # Checking the master list if the price is zero
@@ -143,8 +143,9 @@ def high_light_price_increase(matched_list, workbook_name, start_row, last_row):
                               end_color='00FFFF00',
                               fill_type='solid')
 
-    for row in ws.iter_rows(start_row, last_row):
-        row_id = str(row[0].value).strip().upper()  # This specifies column A in the row iteration
+    for row in ws.iter_rows(None, start_row, last_row):  # Was updated to pass None into iter_rows to prevent crash 6-22-21
+        row_id = str(row[0].value).strip()  # This specifies column A in the row iteration
+        print("We are in this loop for highlighting")
         is_found = row_id in chain(*matched_list)
         if is_found:
             print("The ID: " + row_id + " was found!")
@@ -301,6 +302,6 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 
 if __name__ == '__main__':
-    price_update_changes_comparisons("PriceIncreases/BigC - Daubert Price Update May 25-2021.xlsx", ['A', 'D'], [2, 372],
-                                     "MasterSheets/products-2021-05-26.xlsx", ['B', 'E'], [2, 2323])
-    print("Just wanted to test something again!")
+    price_update_changes_comparisons("PriceIncreases/BigC Update Chevron June '21 Increase.xlsx", ['A', 'D'], [2, 132],
+                                     "MasterSheets/products-2021-06-22.xlsx", ['B', 'E'], [2, 2323])
+    # print("Just wanted to test something again!")
