@@ -45,8 +45,14 @@ def collect_information(workbook_name, sheet_name, columns, starting_row_number,
             if j == 0:
                 value = str(sheet[column_letter + row_string].value).strip().upper()
             elif j == 1:
-                floatPrice = float(value)
-                roundPrice = round(floatPrice, 2)
+                if "[FIXED]" in str(value):
+                    roundPrice = value.replace("[FIXED]", "")
+                try:
+                    # floatPrice = float(value)
+                    roundPrice = round(value, 2)
+                except TypeError:
+                    pass
+
                 value = str(roundPrice)
                 print("This was the rounded Price: " + value)
             row_properties.append(value)
@@ -106,18 +112,42 @@ def update_price(matched_list, workbook_name, start_row, last_row):
         product_id = i[0]
         results = False
         while not results:
-            for row in ws.iter_rows(None, start_row, last_row):  # If error occurs with iter_rows, check parameters in worksheet.py
-                if str(row[1].value).strip().upper() == product_id:
+            for row in ws.iter_rows(None, start_row, last_row):
+                if str(row[3].value).strip().upper() == product_id:
                     print("ID: " + str(row[1].value) + " was found and the price is: " + str(row[4].value))
+                    old_price = str(row[4].value).replace("[FIXED]", "")
                     if str(row[4].value).strip() == '0':  # Checking the master list if the price is zero
                         print("We do not work with this product!")
                         results = True
                     else:
-                        row[4].value = i[1]
-                        print("Updated the price with: " + str(i[1]))
-                        highlight_row(row, green_fill)
+                        if old_price != str(i[1]):
+                            highlight_row(row, green_fill)
+                            if str(row[4].value) != "None":
+                                if "[FIXED]" in str(row[4].value):
+                                    row[4].value = "[FIXED]" + i[1]
+                                    search_row = row
+                                    # Loop up the rows until the Product row is found, and highlights it green
+                                    while search_row[0].value != "Product":
+                                        search_row = ws[search_row[0].row - 1]
+                                    highlight_row(search_row, green_fill)
+
+                                    search_row = row
+                                    print("Before While: " + str(search_row[3].value).strip().upper())
+                                    # Loop up the rows until the old item row is found, and updates the price. If no old
+                                    # product exists, do nothing
+                                    try:
+                                        while str(search_row[3].value).strip().upper() != product_id + "-OLD":
+                                            print("In While: " + str(search_row[3].value).strip().upper())
+                                            search_row = ws[search_row[0].row - 1]
+                                        highlight_row(search_row, green_fill)
+                                        search_row[4].value = i[1]
+                                    except IndexError:
+                                        print("There is no old version of this product")
+                                else:
+                                    row[4].value = i[1]
+                                print("Updated the price with: " + str(i[1]))
                         results = True
-    wb.save(workbook_name)
+    wb.save(workbook_name + "_Updated.xlsx")
     print("Saved the " + workbook_name + " workbook!")
 
 
@@ -143,9 +173,8 @@ def high_light_price_increase(matched_list, workbook_name, start_row, last_row):
                               end_color='00FFFF00',
                               fill_type='solid')
 
-    for row in ws.iter_rows(None, start_row, last_row):  # Was updated to pass None into iter_rows to prevent crash 6-22-21
-        row_id = str(row[0].value).strip()  # This specifies column A in the row iteration
-        print("We are in this loop for highlighting")
+    for row in ws.iter_rows(None, start_row, last_row):
+        row_id = str(row[0].value).strip().upper()  # This specifies column A in the row iteration
         is_found = row_id in chain(*matched_list)
         if is_found:
             print("The ID: " + row_id + " was found!")
@@ -302,6 +331,7 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 
 if __name__ == '__main__':
-    price_update_changes_comparisons("PriceIncreases/BigC Update Chevron June '21 Increase.xlsx", ['A', 'D'], [2, 132],
-                                     "MasterSheets/products-2021-06-22.xlsx", ['B', 'E'], [2, 2323])
+    # TODO: Don't forget to change the row numbers per file before you run.
+    price_update_changes_comparisons("PriceIncreases/P66 BigC Price Update July '21_.xlsx", ['A', 'D'], [2, 301],
+                                     "MasterSheets/products-2021-07-29.xlsx", ['D', 'E'], [2, 2639])
     # print("Just wanted to test something again!")
