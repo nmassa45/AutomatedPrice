@@ -120,12 +120,20 @@ def update_price(matched_list, workbook_name, start_row, last_row):
                         print("We do not work with this product!")
                         results = True
                     else:
-                        if old_price != str(i[1]):
+                        if old_price != str(i[1]) and row[4].value is not None:
                             highlight_row(row, green_fill)
                             if str(row[4].value) != "None":
                                 if "[FIXED]" in str(row[4].value):
                                     row[4].value = "[FIXED]" + i[1]
                                     search_row = row
+                                    search_row = ws[search_row[0].row - 1]
+                                    while search_row[3].value != row[3].value:
+                                        search_row = ws[search_row[0].row - 1]
+                                        print("Searching for SKU row and at row: " + str(search_row))
+                                    highlight_row(search_row, green_fill)
+                                    print("Found SKU row with A value as: " + str(search_row[0].value) + " and a SKU of"
+                                                                                                         + str(search_row[3].value))
+
                                     # Loop up the rows until the Product row is found, and highlights it green
                                     while search_row[0].value != "Product":
                                         search_row = ws[search_row[0].row - 1]
@@ -137,7 +145,7 @@ def update_price(matched_list, workbook_name, start_row, last_row):
                                     # product exists, do nothing
                                     try:
                                         while str(search_row[3].value).strip().upper() != product_id + "-OLD":
-                                            print("In While: " + str(search_row[3].value).strip().upper())
+                                            # print("In While: " + str(search_row[3].value).strip().upper())
                                             search_row = ws[search_row[0].row - 1]
                                         highlight_row(search_row, green_fill)
                                         search_row[4].value = i[1]
@@ -332,6 +340,6 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
-    price_update_changes_comparisons("PriceIncreases/P66 BigC Price Update July '21_.xlsx", ['A', 'D'], [2, 301],
-                                     "MasterSheets/products-2021-07-29.xlsx", ['D', 'E'], [2, 2639])
+    price_update_changes_comparisons("PriceIncreases/Chevron BigC Prices Aug '21_.xlsx", ['A', 'D'], [2, 132],
+                                     "MasterSheets/products-2021-07-28.xlsx", ['D', 'E'], [2, 2639])
     # print("Just wanted to test something again!")
