@@ -340,6 +340,6 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
-    price_update_changes_comparisons("PriceIncreases/Chevron BigC Prices Aug '21_.xlsx", ['A', 'D'], [2, 132],
-                                     "MasterSheets/products-2021-07-28.xlsx", ['D', 'E'], [2, 2639])
+    price_update_changes_comparisons("PriceIncreases/Mobil-BigC Price Update Aug '21.xlsx", ['A', 'D'], [2, 334],
+                                     "MasterSheets/products-2021-08-06.xlsx", ['D', 'E'], [2, 2744])
     # print("Just wanted to test something again!")
