@@ -15,7 +15,7 @@ import locale
 import time
 from itertools import chain
 import openpyxl
-from openpyxl.styles import PatternFill
+from openpyxl.styles import PatternFill, numbers
 
 
 def collect_information(workbook_name, sheet_name, columns, starting_row_number, finishing_row_number):
@@ -35,6 +35,8 @@ def collect_information(workbook_name, sheet_name, columns, starting_row_number,
     master_list = []
     wb = openpyxl.load_workbook(workbook_name)
     sheet = wb[sheet_name]
+    # col = sheet.column_dimensions[columns[0]]
+    # col.number_format = numbers.BUILTIN_FORMATS[1]
 
     for i in range(starting_row_number, finishing_row_number + 1):
         row_properties = []
@@ -44,11 +46,14 @@ def collect_information(workbook_name, sheet_name, columns, starting_row_number,
             value = sheet[column_letter + row_string].value
             if j == 0:
                 value = str(sheet[column_letter + row_string].value).strip().upper()
+                # print("EXCEL GOT A VALUE OF: " + str(value))
+                # cell = sheet[column_letter + row_string]
+                # cell.number_format = numbers.FORMAT_NUMBER
             elif j == 1:
                 if "[FIXED]" in str(value):
                     roundPrice = value.replace("[FIXED]", "")
                 try:
-                    # floatPrice = float(value)
+                    value = value + .0001
                     roundPrice = round(value, 2)
                 except TypeError:
                     pass
@@ -340,6 +345,8 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
-    price_update_changes_comparisons("PriceIncreases/BigC Shell Price Increase Aug '21 .xlsx", ['A', 'D'], [2, 334],
-                                     "MasterSheets/products-2021-08-27.xlsx", ['D', 'E'], [2, 2744])
-    # print("Just wanted to test something again!")
+    price_update_changes_comparisons("PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx", ['A', 'D'], [2, 246],
+                                     "MasterSheets/products-2021-12-14(xlsx).xlsx", ['D', 'E'], [2, 4460])
+    # val = 1235.5625
+    # val = val + .0001
+    # print(str(round(val, 2)))
