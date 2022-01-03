@@ -347,6 +347,5 @@ if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
     price_update_changes_comparisons("PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx", ['A', 'D'], [2, 246],
                                      "MasterSheets/products-2021-12-14(xlsx).xlsx", ['D', 'E'], [2, 4460])
-    # val = 1235.5625
-    # val = val + .0001
-    # print(str(round(val, 2)))
+
+    # testng git
