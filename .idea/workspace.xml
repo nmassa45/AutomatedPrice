@@ -3,7 +3,46 @@
   <component name="ChangeListManager">
     <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Fix for iter_rows parameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-05-05.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-05-14.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-05-14_P66.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-05-25.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-05-26.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-06-03.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-06-22.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28 (BS).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28 (BS).xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28 PSC.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28 PSC.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-28.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-29.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-29.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-30 Sunoco(TESTING).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-07-30 Sunoco.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-08-06.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-08-06.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-08-27.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-08-27.xlsx_Updated.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/BigCom Mobil Price Increase May '21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Bluesky BigC Aug '21 Increase (BS).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Bluesky BigC Aug '21 Increase (PSC).xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Chevron BigC Prices Aug '21_.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Clemco Nov '21 BigC Increase.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Misc. BigC Price Updates 5-24-21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Mobil BigC Increase Nov '21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Mobil-BigC Price Update Aug '21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/P66 BigC Price Update July '21_.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/P66 May' 21 BigCom Pricing.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/PSC-Clemco Sell Price.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Pittsburg Spray Products Scrape_03_12_21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Power Service BigC Price Update Fall '21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/SBM Price List_04_30_21.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/SKUs_Grabbed_BigC Shell Price Increase Aug '21 .xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Sunoco BigC Prices July '21_.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Sunoco May 17th. BigC Pricing.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/higherPrices.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/price_increase.xlsx" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +64,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="PyConsoleConfigurable.Python Console" />
+  </component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings module-name="Work Folder" is-module-sdk="true">
+        <option name="myUseModuleSdk" value="true" />
+        <option name="myModuleName" value="Work Folder" />
+      </console-settings>
+    </option>
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
