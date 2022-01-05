@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Added Mobil August Price Increase">
+    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Fix for iter_rows parameters">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-12-01.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-12-01(TEST).xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomatedPrice/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +74,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628276536725</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Fix for iter_rows parameters">
+      <created>1641401931718</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1641401931718</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -92,6 +97,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Mobil August Price Increase" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Mobil August Price Increase" />
+    <MESSAGE value="Fix for iter_rows parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix for iter_rows parameters" />
   </component>
 </project>
