@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Added Mobil August Price Increase" />
+    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Added Mobil August Price Increase">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-12-01.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/MasterSheets/products-2021-12-01(TEST).xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AutomatedPrice/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,9 +40,6 @@
       <module name="Work Folder" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AutomatedPrice" />
       <option name="IS_MODULE_SDK" value="true" />

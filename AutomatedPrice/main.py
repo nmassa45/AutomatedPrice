@@ -117,7 +117,7 @@ def update_price(matched_list, workbook_name, start_row, last_row):
         product_id = i[0]
         results = False
         while not results:
-            for row in ws.iter_rows(None, start_row, last_row):
+            for row in ws.iter_rows(start_row, last_row):
                 if str(row[3].value).strip().upper() == product_id:
                     print("ID: " + str(row[1].value) + " was found and the price is: " + str(row[4].value))
                     old_price = str(row[4].value).replace("[FIXED]", "")
@@ -186,7 +186,8 @@ def high_light_price_increase(matched_list, workbook_name, start_row, last_row):
                               end_color='00FFFF00',
                               fill_type='solid')
 
-    for row in ws.iter_rows(None, start_row, last_row):
+    for row in ws.iter_rows(start_row, last_row):
+        print("ROW: " + str(row))
         row_id = str(row[0].value).strip().upper()  # This specifies column A in the row iteration
         is_found = row_id in chain(*matched_list)
         if is_found:
@@ -346,6 +347,6 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
     price_update_changes_comparisons("PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx", ['A', 'D'], [2, 246],
-                                     "MasterSheets/products-2021-12-14(xlsx).xlsx", ['D', 'E'], [2, 4460])
+                                     "MasterSheets/products-2021-12-01(TEST).xlsx", ['D', 'E'], [2, 4456])
 
     # testng git
