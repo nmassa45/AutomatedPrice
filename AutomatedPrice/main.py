@@ -149,6 +149,9 @@ def update_price(matched_list, workbook_name, start_row, last_row):
                                     # Loop up the rows until the old item row is found, and updates the price. If no old
                                     # product exists, do nothing
                                     try:
+                                        # start searching for old versions of products at row 2331 so we do not waste
+                                        # time searching through new products
+                                        search_row = ws[2331]
                                         while str(search_row[3].value).strip().upper() != product_id + "-OLD":
                                             # print("In While: " + str(search_row[3].value).strip().upper())
                                             search_row = ws[search_row[0].row - 1]
@@ -346,7 +349,7 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run.
-    price_update_changes_comparisons("PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx", ['A', 'D'], [2, 246],
+    price_update_changes_comparisons("PriceIncreases/P66-BigC Price Update Dec '21.xlsx", ['A', 'D'], [2, 324],
                                      "MasterSheets/products-2021-12-01(TEST).xlsx", ['D', 'E'], [2, 4456])
 
     # testng git
