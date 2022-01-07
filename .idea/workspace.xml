@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Fix for iter_rows parameters">
+    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/PriceIncreases/Balas-BigC Price Update Dec '21 (Increase).xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomatedPrice/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,9 +46,6 @@
       <module name="Work Folder" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/AutomatedPrice" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -93,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641401931718</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist">
+      <created>1641576763452</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1641576763452</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +114,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Mobil August Price Increase" />
     <MESSAGE value="Fix for iter_rows parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix for iter_rows parameters" />
+    <MESSAGE value="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist" />
   </component>
 </project>

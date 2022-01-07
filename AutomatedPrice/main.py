@@ -93,7 +93,7 @@ def check_which_products_exist(first_list, second_list):
     return matched_ids
 
 
-def update_price(matched_list, workbook_name, start_row, last_row):
+def update_price(matched_list, workbook_name, start_row, last_row, old_dict):
     """
     Update the price in the master sheet.
 
@@ -101,6 +101,7 @@ def update_price(matched_list, workbook_name, start_row, last_row):
     matched SKU numbers and the new price that needs to be added. This function should not return anything, should
     simply update the products in the master sheet.
 
+    :param old_dict: Dictionary of where the skus of products on the old format are in the excel file
     :param matched_list: Represents a list of lists with matched ID's.
     :param workbook_name: Represents the name of the workbook we are trying to update.
     :param start_row: Represents where we are starting.
@@ -134,7 +135,7 @@ def update_price(matched_list, workbook_name, start_row, last_row):
                                     search_row = ws[search_row[0].row - 1]
                                     while search_row[3].value != row[3].value:
                                         search_row = ws[search_row[0].row - 1]
-                                        print("Searching for SKU row and at row: " + str(search_row))
+                                        # print("Searching for SKU row and at row: " + str(search_row))
                                     highlight_row(search_row, green_fill)
                                     print("Found SKU row with A value as: " + str(search_row[0].value) + " and a SKU of"
                                                                                                          + str(search_row[3].value))
@@ -144,21 +145,15 @@ def update_price(matched_list, workbook_name, start_row, last_row):
                                         search_row = ws[search_row[0].row - 1]
                                     highlight_row(search_row, green_fill)
 
-                                    search_row = row
-                                    print("Before While: " + str(search_row[3].value).strip().upper())
-                                    # Loop up the rows until the old item row is found, and updates the price. If no old
-                                    # product exists, do nothing
-                                    try:
-                                        # start searching for old versions of products at row 2331 so we do not waste
-                                        # time searching through new products
-                                        search_row = ws[2331]
-                                        while str(search_row[3].value).strip().upper() != product_id + "-OLD":
-                                            # print("In While: " + str(search_row[3].value).strip().upper())
-                                            search_row = ws[search_row[0].row - 1]
-                                        highlight_row(search_row, green_fill)
-                                        search_row[4].value = i[1]
-                                    except IndexError:
-                                        print("There is no old version of this product")
+                                    # Look up where the old sku row is, and then update and highlight it
+                                    if old_dict is not None:
+                                        try:
+                                            old_row = old_dict[product_id + "-old"]
+                                            ws[old_row][4].value = i[1]
+                                            highlight_row(ws[old_row], green_fill)
+                                        # If there is no old version, move on
+                                        except KeyError:
+                                            print("There is no old version of this product")
                                 else:
                                     row[4].value = i[1]
                                 print("Updated the price with: " + str(i[1]))
@@ -250,7 +245,7 @@ def import_excel_price_increase(properties, start, sheet, workbook, workbook_nam
     print("The workbook: " + workbook_name + " has been saved!")
 
 
-def price_update_changes_comparisons(price_increase, price_increase_columns, price_increase_indices,
+def price_update_changes_comparisons(site, price_increase, price_increase_columns, price_increase_indices,
                                      master, master_columns, master_indices):
     """
     Function for price increases between two files
@@ -261,6 +256,7 @@ def price_update_changes_comparisons(price_increase, price_increase_columns, pri
     also highlighting those rows in yellow. Each method requires a couple of parameters to run, information about those can
     be found in each respectable function.
 
+    :param site: The website we will be updating
     :param price_increase: This represents the price_increase excel file.
     :param price_increase_columns: This represents a list containing the columns for the sku number and the price.
     :param price_increase_indices: This represents a list containing indices for start and finish in the excel file.
@@ -278,7 +274,44 @@ def price_update_changes_comparisons(price_increase, price_increase_columns, pri
     matched = check_which_products_exist(price_changes, compare_information)
     high_light_price_increase(matched, price_increase, price_increase_indices[0], price_increase_indices[1])
     print("We are going to update the master sheet now")
-    update_price(matched, master, master_indices[0], master_indices[1])
+    old_dict = create_old_prod_dict(master, site)
+    update_price(matched, master, master_indices[0], master_indices[1], old_dict)
+
+
+def create_old_prod_dict(master_sheet, site):
+    """
+    This function creates a dictionary of products that exist/existed on the old layout and their row number
+    in the excel file. This dictionary will be used look up where the old skus are later
+    :param site: Website we are updating
+    :param master_sheet: Product sheet exported from BigC
+    :return:
+    """
+
+    if site == "PSC":
+        end_of_old = 2331
+    elif site == "AOO":
+        end_of_old = 90
+    else:
+        return None
+
+    wb = openpyxl.load_workbook(master_sheet)
+    ws = wb.active
+
+    old_prod_cords = {}
+    row_count = 1
+
+    for row in ws.iter_rows(2, end_of_old):
+        row_count += 1
+        sku = row[3].value
+
+        if sku is not None:
+            tup = (str(sku), str(row_count))
+            temp_dict = {tup[0]: tup[1]}
+            # print("temp_dict: " + str(temp_dict))
+
+            old_prod_cords.update(temp_dict)
+
+    return old_prod_cords
 
 
 def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_columns, scrape_start, scrape_end,
@@ -348,8 +381,8 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 
 
 if __name__ == '__main__':
-    # TODO: Don't forget to change the row numbers per file before you run.
-    price_update_changes_comparisons("PriceIncreases/P66-BigC Price Update Dec '21.xlsx", ['A', 'D'], [2, 324],
+    # TODO: Don't forget to change the row numbers per file before you run
+    #  AND the site you will be updating
+    price_update_changes_comparisons("PSC", "PriceIncreases/P66-BigC Price Update Dec '21.xlsx", ['A', 'D'], [2, 324],
                                      "MasterSheets/products-2021-12-01(TEST).xlsx", ['D', 'E'], [2, 4456])
-
     # testng git
