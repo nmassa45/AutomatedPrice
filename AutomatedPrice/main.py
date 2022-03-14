@@ -148,7 +148,7 @@ def update_price(matched_list, workbook_name, start_row, last_row, old_dict):
                                     # Look up where the old sku row is, and then update and highlight it
                                     if old_dict is not None:
                                         try:
-                                            old_row = old_dict[product_id + "-old"]
+                                            old_row = old_dict[(product_id + "-OLD")]
                                             ws[old_row][4].value = i[1]
                                             highlight_row(ws[old_row], green_fill)
                                         # If there is no old version, move on
@@ -305,7 +305,7 @@ def create_old_prod_dict(master_sheet, site):
         sku = row[3].value
 
         if sku is not None:
-            tup = (str(sku), str(row_count))
+            tup = (str(sku).upper(), str(row_count))
             temp_dict = {tup[0]: tup[1]}
             # print("temp_dict: " + str(temp_dict))
 
@@ -383,6 +383,6 @@ def compare_Scrape_Verus_Master(scrape_fileName, scrape_sheetName, scrape_column
 if __name__ == '__main__':
     # TODO: Don't forget to change the row numbers per file before you run
     #  AND the site you will be updating
-    price_update_changes_comparisons("PSC", "PriceIncreases/P66-BigC Price Update Dec '21.xlsx", ['A', 'D'], [2, 324],
-                                     "MasterSheets/products-2021-12-01(TEST).xlsx", ['D', 'E'], [2, 4456])
+    price_update_changes_comparisons("PSC", "PriceIncreases/BS BigC Price Update Mar '22 (Increase)(PSC).xlsx", ['A', 'C'], [2, 135],
+                                     "MasterSheets/products-2022-03-11(testing).xlsx", ['D', 'E'], [2, 5194])
     # testng git

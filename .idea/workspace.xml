@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist">
+    <list default="true" id="4d2376d5-383c-49ec-86fc-8b76a498d4b4" name="Default Changelist" comment="Even More Efficiency Improvement&#10;&#10;Rather than search for old products, put them in a dictionary beforehand, then do a simple key lookup to update them.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AutomatedPrice/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutomatedPrice/main.py" afterDir="false" />
     </list>
@@ -96,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641576763452</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Even More Efficiency Improvement&#10;&#10;Rather than search for old products, put them in a dictionary beforehand, then do a simple key lookup to update them.">
+      <created>1641588686259</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1641588686259</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -115,6 +122,7 @@
     <MESSAGE value="Added Mobil August Price Increase" />
     <MESSAGE value="Fix for iter_rows parameters" />
     <MESSAGE value="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Efficiency Improvement&#10;&#10;Only search for old products where old products can exist" />
+    <MESSAGE value="Even More Efficiency Improvement&#10;&#10;Rather than search for old products, put them in a dictionary beforehand, then do a simple key lookup to update them." />
+    <option name="LAST_COMMIT_MESSAGE" value="Even More Efficiency Improvement&#10;&#10;Rather than search for old products, put them in a dictionary beforehand, then do a simple key lookup to update them." />
   </component>
 </project>
